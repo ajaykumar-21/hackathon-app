@@ -170,7 +170,7 @@ function HackathonCreate() {
           <FormControl fullWidth>
             <Select
               name="level"
-              value={hackathonDetails.level} // Bind value to state
+              value={hackathonDetails.level || ""}
               onChange={handleInputChange}
             >
               <MenuItem value="" disabled>

@@ -15,7 +15,7 @@ function NavBar() {
           <img
             src={navLogo}
             alt="Logo"
-            style={{ marginLeft: "50px", height: "34px" }}
+            style={{ paddingLeft: "50px", height: "34px" }}
           />{" "}
         </Toolbar>
       </AppBar>

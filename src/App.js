@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import HackathonList from "./components/HackathonList";
 import NavBar from "./components/NavBar";
 import HackathonCreate from "./components/HackathonCreate";
-import HeroSection from "./components/HeroSection";
+import HeroSection from "./components/HeroSection/HeroSection";
 
 function App() {
   return (

@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  height: 400px;
+}
+
+.divider {
+  width: 1px;
+  height: 60px; /* Adjust the height as needed */
+  background-color: white;
+  opacity: 0.5;
+}
+
+.cartContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 400px;
+  height: 220px;
+  border-radius: 12px;
+  background-color: #f8f9fd;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  padding-top: 20px;
+  color: #22c55e;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #64607d;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.sectionTitle {
+  font-weight: 700;
+  font-size: 32px;
+  color: black;
+  text-align: center;
+  margin-bottom: 70px;
+}
