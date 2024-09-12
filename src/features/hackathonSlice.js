@@ -17,9 +17,9 @@ export const fetchHackathon = createAsyncThunk(
 );
 
 export const addHackathon = createAsyncThunk(
-  "fetchHackathon",
+  "addHackathon",
   async (data, { rejectWithValue }) => {
-    const res = await axios.get(
+    const res = await axios.post(
       "https://66e011c12fb67ac16f282f45.mockapi.io/hackathon",
       data
     );

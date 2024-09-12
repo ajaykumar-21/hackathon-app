@@ -11,6 +11,9 @@ import {
 import { styled } from "@mui/material/styles";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import "../App.css";
+import { useDispatch } from "react-redux";
+import { addHackathon } from "../features/hackathonSlice";
+import { useNavigate } from "react-router-dom";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -23,8 +26,11 @@ const VisuallyHiddenInput = styled("input")({
   whiteSpace: "nowrap",
   width: 1,
 });
+
 function HackathonCreate() {
   const [hackathonDetails, setHackathonDetails] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [image, setImage] = useState("");
 
   const handleInputChange = (e) => {
@@ -40,7 +46,9 @@ function HackathonCreate() {
   };
 
   const handleSubmit = (e) => {
-    e.PreventDefault();
+    e.preventDefault();
+    dispatch(addHackathon(hackathonDetails));
+    navigate("/");
   };
 
   return (
@@ -55,6 +63,7 @@ function HackathonCreate() {
           paddingTop: "30px",
           paddingBottom: "30px",
           paddingLeft: "80px",
+          color: "black",
         }}
       >
         Challenge Details
@@ -63,9 +72,10 @@ function HackathonCreate() {
         sx={{
           width: "auto",
           height: "auto",
-          marginLeft: "80px",
-          marginTop: "30px",
-          marginBottom: "50px",
+          paddingLeft: "80px",
+          paddingTop: "30px",
+          paddingBottom: "50px",
+          background: "#FFFFFF",
         }}
       >
         <Box
@@ -80,7 +90,9 @@ function HackathonCreate() {
           }}
         >
           {/* Name Field */}
-          <Typography style={{ fontWeight: "600" }}>Challenge Name</Typography>
+          <Typography style={{ fontWeight: "600", color: "black" }}>
+            Challenge Name
+          </Typography>
           <TextField
             type="text"
             name="name"
@@ -90,7 +102,9 @@ function HackathonCreate() {
           />
 
           {/* Start Date Field */}
-          <Typography style={{ fontWeight: "600" }}>Start Date</Typography>
+          <Typography style={{ fontWeight: "600", color: "black" }}>
+            Start Date
+          </Typography>
           <TextField
             type="date"
             name="startDate"
@@ -100,7 +114,9 @@ function HackathonCreate() {
           />
 
           {/* End Date Field */}
-          <Typography style={{ fontWeight: "600" }}>End Date</Typography>
+          <Typography style={{ fontWeight: "600", color: "black" }}>
+            End Date
+          </Typography>
           <TextField
             type="date"
             name="endDate"
@@ -110,7 +126,9 @@ function HackathonCreate() {
           />
 
           {/* Description Field */}
-          <Typography style={{ fontWeight: "600" }}>Description</Typography>
+          <Typography style={{ fontWeight: "600", color: "black" }}>
+            Description
+          </Typography>
           <TextField
             variant="outlined"
             name="description"
@@ -121,7 +139,9 @@ function HackathonCreate() {
           />
 
           {/* Image Upload */}
-          <Typography style={{ fontWeight: "600" }}>Image</Typography>
+          <Typography style={{ fontWeight: "600", color: "black" }}>
+            Image
+          </Typography>
           <Button
             component="label"
             role={undefined}
@@ -144,11 +164,13 @@ function HackathonCreate() {
           </Button>
 
           {/* Level Selector */}
-          <Typography style={{ fontWeight: "600" }}>Level</Typography>
+          <Typography style={{ fontWeight: "600", color: "black" }}>
+            Level
+          </Typography>
           <FormControl fullWidth>
             <Select
               name="level"
-              defaultValue="Easy"
+              value={hackathonDetails.level} // Bind value to state
               onChange={handleInputChange}
             >
               <MenuItem value="" disabled>
