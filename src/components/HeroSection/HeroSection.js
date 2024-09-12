@@ -4,8 +4,6 @@ import { ReactComponent as AIicon } from "../../assets/AI-Icon.svg";
 import { ReactComponent as UserIcon } from "../../assets/userIcon.svg";
 import { ReactComponent as HeartRobo } from "../../assets/heartRobo.svg";
 import { useNavigate } from "react-router-dom";
-import { Card, CardContent, Typography } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import { cardData } from "../../data/cartData";
 import "./HeroSection.css";
 
@@ -137,10 +135,6 @@ function HeroSection() {
             </div>
           ))}
         </div>
-      </div>
-
-      <div>
-        
       </div>
     </>
   );

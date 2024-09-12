@@ -1,0 +1,69 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #002a3b;
+  color: white;
+  padding-bottom: 100px;
+}
+.exploreHeading {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: sans-serif;
+  line-height: 40px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+/* Search bar styling */
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  width: 700px;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding-left: 30px;
+}
+
+.searchIcon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+  border-radius: 30px;
+  padding: 10px;
+  color: #333;
+}
+
+input::placeholder {
+  color: #b0b0b0;
+}
+
+/* Filter button styling */
+.filterBtn {
+  width: 110px;
+  background-color: #f5f5f5;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  margin-left: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  background-color: #e0e0e0;
+}

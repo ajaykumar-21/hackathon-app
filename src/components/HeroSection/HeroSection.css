@@ -15,7 +15,7 @@
 .cartContainer {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 35px;
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
@@ -55,4 +55,72 @@
   color: black;
   text-align: center;
   margin-bottom: 70px;
+}
+
+/* Main container styling */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #0b3b4b; /* Dark blue background */
+  height: 100vh;
+  color: white;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Search bar styling */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px;
+  width: 400px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.search-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+  border-radius: 30px;
+  padding: 10px;
+  color: #333;
+}
+
+input::placeholder {
+  color: #b0b0b0;
+}
+
+/* Filter button styling */
+.filter-btn {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: #e0e0e0;
 }
