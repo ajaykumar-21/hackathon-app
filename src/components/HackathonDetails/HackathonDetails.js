@@ -1,15 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ReactComponent as Level } from "../../assets/level.svg";
+import { deleteHackathon } from "../../features/hackathonSlice";
+import { editHackathon } from "../../features/hackathonSlice";
 import style from "./HackathonDetails.module.css";
 
 function HackathonDetails() {
   const { hackathons } = useSelector((state) => state.hackathons);
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const hackathon = hackathons.find((data) => data.id === id);
-  console.log(hackathon);
+  // console.log(hackathon);
+
+  const handleDeleteHackathon = () => {
+    dispatch(deleteHackathon(id));
+    navigate("/");
+  };
 
   if (!hackathon) {
     return <h1>Not Found!.</h1>;
@@ -34,8 +43,12 @@ function HackathonDetails() {
           <div className={style.overViewHighlight}></div>
         </div>
         <div className={style.btnWrapper}>
-          <button className={style.btnEdit}>Edit</button>
-          <button className={style.btnDelete}>Delete</button>
+          <Link to={`/edit/${hackathon.id}`} className={style.btnEdit}>
+            Edit
+          </Link>
+          <button className={style.btnDelete} onClick={handleDeleteHackathon}>
+            Delete
+          </button>
         </div>
       </div>
       <div className={style.overViewContainer}>

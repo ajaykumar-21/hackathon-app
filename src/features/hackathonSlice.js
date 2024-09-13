@@ -24,6 +24,37 @@ export const addHackathon = createAsyncThunk(
       data
     );
     try {
+      // console.log(res);
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.res?.data || error.message);
+    }
+  }
+);
+
+export const deleteHackathon = createAsyncThunk(
+  "deleteHackathon",
+  async (id, { rejectWithValue }) => {
+    const res = await axios.delete(
+      `https://66e011c12fb67ac16f282f45.mockapi.io/hackathon/${id}`
+    );
+    try {
+      // console.log(res);
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.res?.data || error.message);
+    }
+  }
+);
+
+export const editHackathon = createAsyncThunk(
+  "editHackathon",
+  async (data, { rejectWithValue }) => {
+    const res = await axios.put(
+      `https://66e011c12fb67ac16f282f45.mockapi.io/hackathon/${data.id}`,
+      data
+    );
+    try {
       console.log(res);
       return res.data;
     } catch (error) {
@@ -63,6 +94,34 @@ const hackathonSlice = createSlice({
         state.hackathons.push(action.payload);
       })
       .addCase(addHackathon.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(deleteHackathon.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteHackathon.fulfilled, (state, action) => {
+        // console.log(action.payload);
+        state.loading = false;
+        state.hackathons = state.hackathons.filter(
+          (hackathon) => hackathon.id !== action.payload.id
+        );
+      })
+      .addCase(deleteHackathon.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(editHackathon.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(editHackathon.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.loading = false;
+        state.hackathons.filter((hackathon) =>
+          hackathon.id === action.payload.id ? action.payload : hackathon
+        );
+      })
+      .addCase(editHackathon.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });
