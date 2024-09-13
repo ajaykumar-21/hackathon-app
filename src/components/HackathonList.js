@@ -25,7 +25,7 @@ function HackathonList() {
         justifyContent: "center",
         flexWrap: "wrap",
         gap: "50px",
-        marginTop:"70px"
+        marginTop: "70px",
       }}
     >
       {hackathons &&
@@ -53,14 +53,27 @@ function HackathonList() {
                   >
                     {hackathon.name}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "text.secondary", textAlign: "center" }}
+                  >
+                    <Typography sx={{ fontSize: "14px", fontWeight: "600" }}>
+                      Ended On
+                    </Typography>
+                    <Typography
+                      sx={{
+                        marginTop: "20px",
+                        fontSize: "18px",
+                        color: "black",
+                        fontWeight: "600",
+                      }}
+                    >
+                      {hackathon.endDate}
+                    </Typography>
                   </Typography>
                   <div
                     style={{
-                      marginTop: "20px",
+                      marginTop: "35px",
                       display: "flex",
                       justifyContent: "center",
                     }}
