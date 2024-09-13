@@ -5,6 +5,8 @@ import { ReactComponent as UserIcon } from "../../assets/userIcon.svg";
 import { ReactComponent as HeartRobo } from "../../assets/heartRobo.svg";
 import { useNavigate } from "react-router-dom";
 import { cardData } from "../../data/cartData";
+import Filter from "../Filters/Filters";
+import HackathonList from "../HackathonList";
 import "./HeroSection.css";
 
 function HeroSection() {
@@ -55,6 +57,7 @@ function HeroSection() {
                 background: "#FFFFFF",
                 fontSize: "18px",
                 fontWeight: "600",
+                cursor: "pointer",
               }}
               onClick={() => navigate("/create")}
             >
@@ -135,6 +138,10 @@ function HeroSection() {
             </div>
           ))}
         </div>
+      </div>
+      <div>
+        <Filter />
+        <HackathonList />
       </div>
     </>
   );

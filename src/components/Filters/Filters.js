@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Filters.module.css";
 import { ReactComponent as Search } from "../../assets/search.svg";
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
+
 function Filters() {
   return (
     <div className={style.searchContainer}>
