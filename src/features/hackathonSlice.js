@@ -67,8 +67,22 @@ const hackathonSlice = createSlice({
   name: "hackathons",
   initialState: {
     hackathons: [],
+    filteredHackathons: [],
     loading: false,
     error: null,
+  },
+
+  reducers: {
+    setFilters(state, action) {
+      // console.log(action.payload);
+      const { search, level } = action.payload;
+
+      state.filteredHackathons = state.hackathons
+        .filter((hackathon) =>
+          hackathon.name.toLowerCase().includes(search.toLowerCase())
+        )
+        .filter((hackathon) => (level ? hackathon.level === level : true));
+    },
   },
 
   extraReducers: (builer) => {
@@ -80,6 +94,7 @@ const hackathonSlice = createSlice({
         // console.log(action.payload);
         state.loading = false;
         state.hackathons = action.payload;
+        state.filteredHackathons = action.payload;
       })
       .addCase(fetchHackathon.rejected, (state, action) => {
         state.loading = false;
@@ -128,4 +143,5 @@ const hackathonSlice = createSlice({
   },
 });
 
+export const { setFilters } = hackathonSlice.actions;
 export default hackathonSlice.reducer;

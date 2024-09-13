@@ -65,3 +65,15 @@ input::placeholder {
 .filterBtn:hover {
   background-color: #e0e0e0;
 }
+
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: end;
+  background-color: aqua;
+}

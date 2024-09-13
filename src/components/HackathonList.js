@@ -10,7 +10,15 @@ import { fetchHackathon } from "../features/hackathonSlice";
 import { Link } from "react-router-dom";
 
 function HackathonList() {
-  const { hackathons } = useSelector((state) => state.hackathons);
+  const { filteredHackathons, hackathons } = useSelector(
+    (state) => state.hackathons
+  );
+  // console.log(
+  //   "filteredHackathons",
+  //   filteredHackathons,
+  //   "hackathons",
+  //   hackathons
+  // );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,8 +36,8 @@ function HackathonList() {
         marginTop: "70px",
       }}
     >
-      {hackathons &&
-        hackathons.map((hackathon) => (
+      {filteredHackathons &&
+        filteredHackathons.map((hackathon) => (
           <Link
             to={`/details/${hackathon.id}`}
             key={hackathon.id}
