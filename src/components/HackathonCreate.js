@@ -46,11 +46,11 @@ function HackathonCreate() {
     setImage(URL.createObjectURL(file)); // Create and store local URL for preview or usage
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // Prevent the default form submission behavior, dispatch an action to add a new hackathon with the current details,
     // and then navigate to the home page
     e.preventDefault();
-    dispatch(addHackathon(hackathonDetails));
+    await dispatch(addHackathon(hackathonDetails));
     navigate("/");
   };
 

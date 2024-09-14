@@ -15,9 +15,9 @@ function HackathonDetails() {
   const hackathon = hackathons.find((data) => data.id === id); // Find and retrieve the hackathon object from the 'hackathons' array with a matching 'id'
   // console.log(hackathon);
 
-  const handleDeleteHackathon = () => {
+  const handleDeleteHackathon = async () => {
     // Dispatch an action to delete the hackathon with the specified 'id' and then navigate to the home page
-    dispatch(deleteHackathon(id));
+    await dispatch(deleteHackathon(id));
     navigate("/"); //Navigate to the hero section
   };
 
