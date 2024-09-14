@@ -8,7 +8,6 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  Button,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setFilters } from "../../features/hackathonSlice";
@@ -17,24 +16,27 @@ function Filters() {
   const [filterOpen, setFilterOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [level, setLevel] = useState("");
+  const [status, setStatus] = useState("All");
   const dispatch = useDispatch();
 
   const toggleFilter = () => {
-    setFilterOpen(!filterOpen);
+    setFilterOpen(!filterOpen); // Toggle the state of the filter panel between open and closed
   };
 
   const handleClose = () => {
-    setFilterOpen(false);
+    setFilterOpen(false); // set false when click
   };
 
   useEffect(() => {
+    // Dispatch an action to update the filters in the global state with the current search term, level, and status
     dispatch(
       setFilters({
         search,
         level,
+        status,
       })
     );
-  }, [level, search, dispatch]);
+  }, [level, search, dispatch, status]);
 
   return (
     <div className={style.searchContainer}>
@@ -69,15 +71,45 @@ function Filters() {
           {/* Status Section */}
           <div className={style.filterSection}>
             <h4>Status</h4>
-            <FormControlLabel control={<Checkbox />} label="All" />
-            <FormControlLabel control={<Checkbox />} label="Active" />
-            <FormControlLabel control={<Checkbox />} label="Upcoming" />
-            <FormControlLabel control={<Checkbox />} label="Past" />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={status === "All"}
+                  onChange={() => setStatus("All")}
+                />
+              }
+              label="All"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={status === "Active"}
+                  onChange={() => setStatus("Active")}
+                />
+              }
+              label="Active"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={status === "Upcoming"}
+                  onChange={() => setStatus("Upcoming")}
+                />
+              }
+              label="Upcoming"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={status === "Past"}
+                  onChange={() => setStatus("Past")}
+                />
+              }
+              label="Past"
+            />
           </div>
-
           {/* Divider */}
           <hr />
-
           {/* Level Section */}
           <div className={style.filterSection}>
             <h4>Level</h4>
@@ -117,9 +149,6 @@ function Filters() {
               marginTop: "16px",
             }}
           >
-            {/* <Button onClick={applyFilters} color="primary" variant="contained">
-              Apply
-            </Button> */}
           </div>
         </DialogContent>
       </Dialog>

@@ -99,6 +99,7 @@ function HackathonCreate() {
             onChange={handleInputChange}
             className="textField"
             fullWidth
+            required
           />
 
           {/* Start Date Field */}
@@ -111,6 +112,7 @@ function HackathonCreate() {
             onChange={handleInputChange}
             InputLabelProps={{ shrink: true }}
             fullWidth
+            required
           />
 
           {/* End Date Field */}
@@ -123,6 +125,7 @@ function HackathonCreate() {
             onChange={handleInputChange}
             InputLabelProps={{ shrink: true }}
             fullWidth
+            required
           />
 
           {/* Description Field */}
@@ -136,6 +139,7 @@ function HackathonCreate() {
             multiline
             rows={4}
             fullWidth
+            required
           />
 
           {/* Image Upload */}
@@ -160,6 +164,7 @@ function HackathonCreate() {
               type="file"
               onChange={imageChange}
               style={{ marginTop: "10px" }}
+              required
             />
           </Button>
 
@@ -172,6 +177,7 @@ function HackathonCreate() {
               name="level"
               value={hackathonDetails.level || ""}
               onChange={handleInputChange}
+              required
             >
               <MenuItem value="" disabled>
                 <em>Select Level</em>

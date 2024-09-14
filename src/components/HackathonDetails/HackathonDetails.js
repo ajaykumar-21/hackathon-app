@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ReactComponent as Level } from "../../assets/level.svg";
 import { deleteHackathon } from "../../features/hackathonSlice";
-import { editHackathon } from "../../features/hackathonSlice";
+import { ReactComponent as Clock } from "../../assets/clock.svg";
 import style from "./HackathonDetails.module.css";
 
 function HackathonDetails() {
@@ -27,7 +27,9 @@ function HackathonDetails() {
   return (
     <>
       <div className={style.wrapper}>
-        <div className={style.hackathonTime}>{hackathon.endDate}</div>
+        <div className={style.hackathonTime}>
+          <Clock /> Start on {hackathon.endDate} (India Standard Time)
+        </div>
         <div className={style.hackathonName}>{hackathon.name}</div>
         <div className={style.hackathonDescription}>
           {hackathon.description}

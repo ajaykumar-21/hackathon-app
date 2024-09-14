@@ -4,6 +4,8 @@
 }
 
 .hackathonTime {
+  display: flex;
+  gap: 10px;
   background-color: #ffce5c;
   font-weight: 600;
   color: #000000;

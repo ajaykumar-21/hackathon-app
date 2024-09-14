@@ -75,13 +75,22 @@ const hackathonSlice = createSlice({
   reducers: {
     setFilters(state, action) {
       // console.log(action.payload);
-      const { search, level } = action.payload;
+      const { search, level, status } = action.payload;
 
       state.filteredHackathons = state.hackathons
         .filter((hackathon) =>
           hackathon.name.toLowerCase().includes(search.toLowerCase())
         )
-        .filter((hackathon) => (level ? hackathon.level === level : true));
+        .filter((hackathon) => (level ? hackathon.level === level : true))
+        .filter((hackathon) => {
+          if (status === "All") return true; // No filter applied if "All" is selected
+          if (status === "Active") return hackathon.isActive; // Assuming "isActive" is a field
+          if (status === "Upcoming")
+            return new Date(hackathon.startDate) > new Date();
+          if (status === "Past")
+            return new Date(hackathon.endDate) < new Date();
+          return true;
+        });
     },
   },
 
