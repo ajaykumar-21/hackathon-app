@@ -18,7 +18,7 @@ function HackathonList() {
   const getTimeRemaining = (endDate) => {
     const total = new Date(endDate) - new Date();
     if (total <= 0) return null; // Event has passed
-
+    // Calculate the time remaining from a total milliseconds value
     const seconds = Math.floor((total / 1000) % 60);
     const minutes = Math.floor((total / 1000 / 60) % 60);
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
@@ -44,11 +44,13 @@ function HackathonList() {
   };
 
   useEffect(() => {
+    // Set up an interval to regularly update the time remaining for each filtered hackathon
     const interval = setInterval(() => {
       setTimeRemaining(
         filteredHackathons.reduce((acc, hackathon) => {
           const status = getStatus(hackathon.startDate, hackathon.endDate);
 
+          // Only update time remaining for active or upcoming hackathons
           if (status === "active" || status === "upcoming") {
             acc[hackathon.id] = getTimeRemaining(
               status === "active" ? hackathon.endDate : hackathon.startDate
@@ -126,7 +128,7 @@ function HackathonList() {
                           width: "100px",
                           height: "21px",
                           borderRadius: "5px",
-                          color: "#fff", // Add color for better contrast
+                          color: "#fff",
                         }}
                       >
                         Active

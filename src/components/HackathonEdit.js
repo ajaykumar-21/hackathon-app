@@ -18,10 +18,10 @@ function HackathonEdit() {
   const { id } = useParams();
   const { hackathons } = useSelector((state) => state.hackathons);
   const [updateHackathon, setUpdateHackathon] = useState({
-    image: "", // Image URL
-    level: "", // Level ('easy', 'medium', 'hard')
+    image: "",
+    level: "",
   });
-  const [imagePreview, setImagePreview] = useState(null); // For image preview
+  const [imagePreview, setImagePreview] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -176,7 +176,7 @@ function HackathonEdit() {
                 {/* Display the uploaded or existing image */}
                 <Box
                   sx={{
-                    backgroundColor: "#F8F9FD", // Background for the card
+                    backgroundColor: "#F8F9FD",
                     padding: "16px",
                     borderRadius: "10px",
                     width: "fit-content",
@@ -187,7 +187,7 @@ function HackathonEdit() {
                       src={imagePreview}
                       alt="Selected"
                       style={{
-                        width: "300px", // Modify size to match
+                        width: "300px",
                         height: "160px",
                         borderRadius: "15px",
                         objectFit: "cover",
@@ -214,8 +214,6 @@ function HackathonEdit() {
                     />
                   </Button>
                 </Box>
-
-                {/* "Change Image" Button */}
               </Box>
 
               {/* Level Selector */}
@@ -225,7 +223,7 @@ function HackathonEdit() {
               <FormControl fullWidth>
                 <Select
                   name="level"
-                  value={updateHackathon.level || ""} // Set the current value based on the received data
+                  value={updateHackathon.level || ""}
                   onChange={handleUpdateHackathon}
                 >
                   <MenuItem value="" disabled>

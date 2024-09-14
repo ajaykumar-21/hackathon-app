@@ -34,9 +34,10 @@ function HackathonCreate() {
   const [image, setImage] = useState("");
 
   const handleInputChange = (e) => {
+    // Update the 'hackathonDetails' state with the new value for the specified input field
     setHackathonDetails({
-      ...hackathonDetails,
-      [e.target.name]: e.target.value,
+      ...hackathonDetails, // Spread the current details
+      [e.target.name]: e.target.value, // Update the specific field with the new value from the input
     });
   };
 
@@ -46,6 +47,8 @@ function HackathonCreate() {
   };
 
   const handleSubmit = (e) => {
+    // Prevent the default form submission behavior, dispatch an action to add a new hackathon with the current details,
+    // and then navigate to the home page
     e.preventDefault();
     dispatch(addHackathon(hackathonDetails));
     navigate("/");

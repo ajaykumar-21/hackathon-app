@@ -12,15 +12,17 @@ function HackathonDetails() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const hackathon = hackathons.find((data) => data.id === id);
+  const hackathon = hackathons.find((data) => data.id === id); // Find and retrieve the hackathon object from the 'hackathons' array with a matching 'id'
   // console.log(hackathon);
 
   const handleDeleteHackathon = () => {
+    // Dispatch an action to delete the hackathon with the specified 'id' and then navigate to the home page
     dispatch(deleteHackathon(id));
-    navigate("/");
+    navigate("/"); //Navigate to the hero section
   };
 
   if (!hackathon) {
+    //if there no hackathon
     return <h1>Not Found!.</h1>;
   }
 
