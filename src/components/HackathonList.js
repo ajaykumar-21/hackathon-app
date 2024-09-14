@@ -65,10 +65,7 @@ function HackathonList() {
   }, [filteredHackathons]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      await dispatch(fetchHackathon());
-    };
-    fetchData();
+    dispatch(fetchHackathon());
   }, [dispatch]);
 
   // console.log(hackathons);
